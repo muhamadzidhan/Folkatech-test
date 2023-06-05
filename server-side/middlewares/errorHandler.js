@@ -9,6 +9,15 @@ const errorHandler = (err, req, res, next) => {
     ) {
         message = err.errors[0].message;
         code = 400;
+    } else if (err.name === "empty_email") {
+        message = "Email is required";
+        code = 400;
+    } else if (err.name === "empty_password") {
+        message = "Password is required";
+        code = 400;
+    } else if (err.name === "unauthorized") {
+        message = "Email / Password is wrong";
+        code = 401;
     }
     res.status(code).json({ message });
 }
