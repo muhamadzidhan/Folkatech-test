@@ -1,7 +1,7 @@
 const errorHandler = require('../middlewares/errorHandler')
 const Hash = require('../helpers/bcrypt')
 const { generateToken } = require('../helpers/jwt')
-const { User } = require('../models')
+const { User, Product, Image } = require('../models')
 
 module.exports = class Controller {
     static async register(req, res, next) {
@@ -43,8 +43,58 @@ module.exports = class Controller {
 
             const token = generateToken({ id: selectUser.id });
             res.status(200).json({
-                access_token: token
+                access_token: token,
+                email: selectUser.email
             })
+        } catch (error) {
+            console.log(error);
+            next(error)
+        }
+    }
+
+    static async getProducts(req, res, next) {
+        try {
+            let product = await Product.findAll({
+                include: [
+                    {
+                        model: Image,
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt"],
+                        },
+                    }
+                ],
+                attributes: {
+                    exclude: ["createdAt", "updatedAt"],
+                },
+            })
+            res.status(200).json(product);
+        } catch (error) {
+            next(error)
+        }
+    }
+
+    static async getProductById(req, res, next) {
+        try {
+            let productId = req.params.id;
+            let product = await Product.findByPk(productId, {
+                include: [
+                    {
+                        model: Image,
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt"],
+                        },
+                    }
+                ],
+                attributes: {
+                    exclude: ["createdAt", "updatedAt"],
+                },
+            })
+
+            if (!product) {
+                throw { name: "DataNotFound" }
+            }
+
+            res.status(200).json(product);
         } catch (error) {
             console.log(error);
             next(error)

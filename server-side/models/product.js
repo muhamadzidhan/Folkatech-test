@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Product.hasMany(models.Image, {
+        foreignKey: "productId",
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
+      });
     }
   }
   Product.init({

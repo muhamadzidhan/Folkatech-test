@@ -18,6 +18,9 @@ const errorHandler = (err, req, res, next) => {
     } else if (err.name === "unauthorized") {
         message = "Email / Password is wrong";
         code = 401;
+    } else if (err.name === "DataNotFound") {
+        message = "Data Not Found"
+        code = 404
     }
     res.status(code).json({ message });
 }

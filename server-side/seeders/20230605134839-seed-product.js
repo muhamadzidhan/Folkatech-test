@@ -15,13 +15,23 @@ module.exports = {
      * }], {});
     */
 
-    const product = db.map((el) => {
+    const product = db.products.map((el) => {
       delete el.id
       el.createdAt = new Date();
       el.updatedAt = new Date();
       return el;
     })
+
+    const image = db.images.map((el) => {
+      delete el.id
+      el.createdAt = new Date();
+      el.updatedAt = new Date();
+      return el;
+    })
+
+
     await queryInterface.bulkInsert('Products', product, {});
+    await queryInterface.bulkInsert('Images', image, {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -31,6 +41,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete("Images", null);
     await queryInterface.bulkDelete("Product", null);
   }
 };

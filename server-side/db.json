@@ -1,6 +1,7 @@
-[
-    {
-        "title": "HARIO CAFE PRESS SLIM GREY 240ML",
+{
+    "products": [
+        {
+            "title": "HARIO CAFE PRESS SLIM GREY 240ML",
         "namaProduct": "UbruKopi",
         "harga": 480000,
         "description": "French Press dari Hario berbahan dasar kaca berwarna abu-abu di desain dengan bentuk yang ramping dan menarik. sangat cocok untuk membuat 1-2 gelas kopi. French Press merupakan salah satu teknik seduh manual yang simple, cukup untuk menyeduh air dan steep selama empat menit sebelum kamu menekan knob agar ampas bisa turun ke dasar.",
@@ -9,5 +10,20 @@
         "imagesUrl": "test",
         "brand": "Hario",
         "spesifikasi": "Spesifikasi: Dimensi : 11x16,5x8cm Berat :350gr Kapasitas : (240ml) Warna : Abu-abu / Grey Brand : Hario"
-    }
-]
+        }
+    ],
+    "images": [
+        {
+            "productId": 1,
+            "imgUrl": "test"
+        },
+        {
+            "productId": 1,
+            "imgUrl": "test"
+        },
+        {
+            "productId": 1,
+            "imgUrl": "test"
+        }
+    ]
+}

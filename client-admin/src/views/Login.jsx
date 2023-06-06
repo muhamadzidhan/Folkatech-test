@@ -76,20 +76,20 @@ function Login() {
                             onChange={inputHandler}
                         />
                     </div>
-                    <div class="flex items-center justify-between">
-                        <div class="text-sm">
-                            <Link to="/register">
-                                <span class="font-medium text-blue-600 hover:text-blue-500">Don't have an account?
-                                    Register</span>
-                            </Link>
-                        </div>
-                    </div>
                     <button
                         type="submit"
                         className="my-4 py-2 px-4 rounded border-2 hover:bg-red-600 ease-linear duration-100 hover:text-white"
                     >
-                        Login
+                        Masuk
                     </button>
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm">
+                            <Link to="/register">
+                                <span class="font-medium text-blue-600 hover:text-blue-500">Belum punya akun?
+                                    Daftar Sekarang</span>
+                            </Link>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
