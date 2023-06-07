@@ -105,7 +105,12 @@ export function fetchProducts() {
     return async (dispatch) => {
         try {
             dispatch(productsLoading(true));
-            let res = await fetch(`${BASE_URL}/product`);
+            let res = await fetch(`${BASE_URL}/product`, {
+                method: "get",
+                headers: {
+                    access_token: localStorage.access_token
+                }
+            });
             if (!res.ok) {
                 throw await res.text();
             }
@@ -124,7 +129,11 @@ export function fetchProduct(id) {
     return async (dispatch) => {
         try {
             dispatch(productLoading(true));
-            let res = await fetch(`${BASE_URL}/product/${id}`);
+            let res = await fetch(`${BASE_URL}/product/${id}`, {
+                headers: {
+                    access_token: localStorage.access_token
+                }
+            });
             if (!res.ok) {
                 throw await res.text();
             }

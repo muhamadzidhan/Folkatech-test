@@ -11,4 +11,4 @@ export const PRODUCTS_LOADING = "products/loading";
 export const PRODUCT = "product/fetchSuccess";
 export const PRODUCT_LOADING = "product/loading";
 
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "http://localhost:4000";

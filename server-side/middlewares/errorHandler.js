@@ -21,6 +21,9 @@ const errorHandler = (err, req, res, next) => {
     } else if (err.name === "DataNotFound") {
         message = "Data Not Found"
         code = 404
+    } else if (err.name === "Unauthenticated") {
+        message = "Unauthenticated"
+        code = 401
     }
     res.status(code).json({ message });
 }

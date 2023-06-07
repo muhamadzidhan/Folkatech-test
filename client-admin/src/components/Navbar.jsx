@@ -9,7 +9,7 @@ function NavBar() {
 
     const [username, setUsername] = useState(null);
 
-    const isLogin = useSelector((state) => state.users.loggedIn);
+    const isLogin = useSelector((state) => state.usersReducer.loggedIn);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -77,14 +77,29 @@ function NavBar() {
                             <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                         </li>
                         <li>
-                            <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                                <NavLink
-                                    className="text-lg mx-4 hover:text-red-500"
-                                    onClick={handleLogout}
-                                    to="/login"
-                                >
-                                    Logout
-                                </NavLink>
+                            <a href="#" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" >
+                                {!isLogin ? (
+                                    <NavLink
+                                        className={({ isActive }) => {
+                                            if (isActive) {
+                                                return "text-lg underline underline-offset-2 font-bold mx-4 text-red-500";
+                                            } else {
+                                                return "text-lg mx-4 hover:underline duration-200 ease-linear";
+                                            }
+                                        }}
+                                        to="/login"
+                                    >
+                                        Login
+                                    </NavLink>
+                                ) : (
+                                    <NavLink
+                                        className="text-lg mx-4 hover:text-red-500"
+                                        onClick={handleLogout}
+                                        to="/"
+                                    >
+                                        Logout
+                                    </NavLink>
+                                )}
                             </a>
                         </li>
                     </ul>

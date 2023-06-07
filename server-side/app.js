@@ -7,7 +7,7 @@ if (process.env.NODE_ENV !== "production") {
   const cors = require("cors");
   const mainRouter = require("./routes");
   const errorHandler = require("./middlewares/errorHandler");
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 4000;
   
   app.use(cors());
   app.use(express.urlencoded({ extended: true }));

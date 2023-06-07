@@ -26,7 +26,7 @@ export default function Card({ product }) {
             to={`/product/${product?.id}`}
             className="hover:scale-105 hover:shadow-md duration-100 ease-out"
         >
-            <div className="max-w-sm bg-[#fefefe] rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm bg-[#fefefe] rounded-lg dark:bg-gray-800 dark:border-gray-700" style={{ backgroundColor: 'black' }}>
                 <img
                     className="rounded-t-lg"
                     src={product?.imagesUrl}

@@ -37,14 +37,14 @@ function Register() {
             toast.update(loading, {
                 render: message,
                 type: "success",
-                autoClose: 500,
+                autoClose: 0,
                 isLoading: false,
             });
             navigate("/login");
         } catch (err) {
             toast.update(loading, {
                 render: err.message,
-                autoClose: 500,
+                autoClose: 0,
                 type: "error",
                 isLoading: false,
             });
@@ -57,8 +57,35 @@ function Register() {
                 <form
                     onSubmit={registerSubmit}
                     className="p-8 border-2 shadow-sm border-black w-1/3"
+                    box-shadow="0px 1px 12px rgba(0, 0, 0, 0.25)"
+                    border-radius="10px"
+                    style={{
+                        width: '568px',
+                        height: '600px',
+                        left: '472px',
+                        top: '130px',
+
+                        background: '#FFFFFF',
+                    }}
                 >
-                    <h1 className="text-3xl my-4">Register</h1>
+                    <h1 className="text-3xl my-4" style={{
+                        width: '229px',
+                        height: '25px',
+                        left: '506px',
+                        top: '172px',
+
+                        fontFamily: 'Gotham',
+                        fontStyle: 'normal',
+                        fontWeight: '700',
+                        fontSize: '26px',
+                        lineHeight: '25px',
+                        /* identical to box height */
+
+                        textAlign: 'center',
+                        letterSpacing: '0.04em',
+
+                        color: '#730C07',
+                    }}>Daftar Sekarang</h1>
                     <label className="">Nama Depan</label>
                     <div className="container my-2 flex w-full">
                         <input
@@ -124,7 +151,7 @@ function Register() {
                     </div>
                 </form>
             </div>
-        </div>
+        </div >
     )
 }
 
